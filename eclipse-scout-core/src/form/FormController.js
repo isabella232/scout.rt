@@ -337,8 +337,15 @@ export default class FormController {
     // Animate _after_ the layout is valid (otherwise, the position would be wrong, because
     // HtmlComponent defers the layout when a component is currently being animated)
     if (dialog.animateOpening) {
-      dialog.$container.addClassForAnimation('animate-open');
-      dialog.$container.addDeviceClass(); // no animation in IE
+      dialog.$container.addClass('invisible');
+      setTimeout(() => {
+        if (!dialog.rendered || dialog.removing) {
+          return;
+        }
+        dialog.$container.removeClass('invisible');
+        dialog.$container.addClassForAnimation('animate-open');
+        dialog.$container.addDeviceClass(); // no animation in IE
+      });
     }
   }
 }

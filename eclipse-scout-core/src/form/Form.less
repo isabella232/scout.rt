@@ -44,9 +44,24 @@
     #scout.animation(fade-in ease-in 1);
     #scout.animation-duration(0.15s);
 
+    &.mobile {
+      #scout.animation(slidein-right ease-out 1);
+      #scout.animation-duration(0.4s);
+    }
+
     &.ie {
       /* IE sometimes doesn't complete the animation so that dialog is nearly invisible */
       #scout.animation-duration(0);
+    }
+  }
+
+  &.animate-remove {
+    #scout.animation(fade-out ease-in 1);
+    #scout.animation-duration(0.01s);
+
+    &.mobile {
+      #scout.animation(slideout-right ease-out 1);
+      #scout.animation-duration(2s);
     }
   }
 

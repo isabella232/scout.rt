@@ -19,6 +19,7 @@ import {
   GroupBox,
   HtmlComponent,
   MessageBoxController,
+  Outline,
   Rectangle,
   scout,
   Status,
@@ -37,6 +38,7 @@ export default class Form extends Widget {
     this._addPreserveOnPropertyChangeProperties(['initialFocus']);
 
     this.animateOpening = true;
+    this.animateRemoval = false;
     this.askIfNeedSave = true;
     this.askIfNeedSaveText = null; // if not set, a default text is used (see Lifecycle.js)
     this.data = {};
@@ -107,6 +109,9 @@ export default class Form extends Widget {
     this._setStatus(this.status);
     this.cacheBoundsKey = scout.nvl(model.cacheBoundsKey, this.objectType);
     this._installLifecycle();
+    if (this.displayHint === 'dialog' && (this.parent === this.session.desktop || this.parent instanceof Outline || this.parent instanceof Form)) {
+      this.animateRemoval = true;
+    }
   }
 
   _render() {
@@ -184,6 +189,7 @@ export default class Form extends Widget {
       // Attach to capture phase to activate focus context before regular mouse down handlers may set the focus.
       // E.g. clicking a check box label on another dialog executes mouse down handler of the check box which will focus the box. This only works if the focus context of the dialog is active.
       this.$container[0].addEventListener('mousedown', this._onDialogMouseDown.bind(this), true);
+      this.$container.addClass('dialog');
     } else {
       layout = new FormLayout(this);
     }

@@ -262,7 +262,7 @@ export default class Widget {
       return;
     }
     this.destroying = true;
-    if (this.rendered && (this.animateRemoval || this._isRemovalPrevented())) {
+    if (this._rendered && (this.animateRemoval || this._isRemovalPrevented())) {
       // Do not destroy yet if the removal happens animated
       // Also don't destroy if the removal is pending to keep the parent / child link until removal finishes
       this.one('remove', () => {
@@ -325,6 +325,10 @@ export default class Widget {
    */
   render($parent) {
     $.log.isTraceEnabled() && $.log.trace('Rendering widget: ' + this);
+    // if (this._isRemovalPending()) {
+    //   $.log.isTraceEnabled() && $.log.trace('Rendering aborted because it will be removed: ' + this);
+    // return;
+    // }
     if (!this.initialized) {
       throw new Error('Not initialized: ' + this);
     }
@@ -357,6 +361,14 @@ export default class Widget {
    */
   _render() {
     // NOP
+  }
+
+  get rendered() {
+    return this._rendered && !this._isRemovalPending();
+  }
+
+  set rendered(rendered) {
+    this._rendered = rendered;
   }
 
   /**
@@ -428,7 +440,7 @@ export default class Widget {
   }
 
   _removeInternal() {
-    if (!this.rendered) {
+    if (!this._rendered) {
       return;
     }
 
@@ -485,7 +497,7 @@ export default class Widget {
     // Don't execute immediately to make sure nothing interferes with the animation (e.g. layouting) which could make it laggy
     setTimeout(() => {
       // check if the container has been removed in the meantime
-      if (!this.rendered) {
+      if (!this._rendered) {
         return;
       }
       if (!this.animateRemovalClass) {
