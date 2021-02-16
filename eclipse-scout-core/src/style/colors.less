@@ -45,15 +45,15 @@
 @palette-gray-0: #FEFEFE;
 @palette-gray-1: #FAFAFA;
 @palette-gray-2: #F6F6F6;
-@palette-gray-3: #EFEFEF;
+@palette-gray-3: #F1F1F1;
 @palette-gray-4: #DDDDDD;
 @palette-gray-5: #CCCCCC;
 @palette-gray-6: #999999;
 @palette-gray-6-1: #888888;
 @palette-gray-7: #666666;
 @palette-gray-8: #5C5C5C;
-@palette-gray-9: #4C4C4C;
-@palette-gray-10: #333333;
+@palette-gray-9: #4A4A4A;
+@palette-gray-10: #383838;
 
 @palette-cyan-0: #DDFFF9;
 @palette-cyan-1: #BAF3E8;
@@ -75,7 +75,7 @@
 /* -------------------------------- */
 
 @active-color: @palette-blue-6;
-@active-inverted-background-color: @palette-blue-5;
+@active-inverted-background-color: @palette-blue-5; // TODO CGU rename
 @active-inverted-color: @palette-white;
 @application-loading-background-color: @palette-white;
 @application-loading01-color: fade(@palette-blue-5, 90%);
@@ -119,7 +119,7 @@
 @loading-indicator-knight-rider-color: @palette-blue-3;
 @panel-background-color: @palette-gray-3;
 @read-only-color: @text-color;
-@text-color: @palette-gray-10;
+@text-color: @palette-black;
 @text-disabled-color: @palette-gray-7;
 @text-selection-background-color: @palette-blue-6;
 @text-selection-color: @palette-white;
@@ -211,9 +211,10 @@
 @default-button-background-color: @palette-blue-4;
 @default-button-color: @palette-white;
 @default-button-hover-background-color: @default-button-background-color;
+@desktop-navigation-border-color: @border-color; // TODO CGU desktop-navigation vs. @navigation
 @desktop-navigation-handle-active-background-color: @outline-group-background-color;
 @desktop-navigation-handle-background-color: @navigation-background-color;
-@desktop-navigation-handle-border-color: @desktop-navigation-handle-color;
+@desktop-navigation-handle-border-color: @border-color;
 @desktop-navigation-handle-color: @navigation-color;
 @desktop-notification-background-color: @palette-white;
 @desktop-notification-ok-border-color: @palette-green-3;
@@ -222,14 +223,17 @@
 @desktop-notification-error-border-color: @palette-red-3;
 @desktop-header-background-color: @palette-white;
 @desktop-header-border-color: @border-color;
-@desktop-toolbox-in-navigation-background-color: @palette-white;
+@desktop-tool-box-item-color: inherit;
+@desktop-toolbox-in-navigation-background-color: @palette-white; // TODO CGU rename toolbox -> tool-box
 @detail-table-header-background-color: @table-header-background-color;
 @detail-table-header-border-color: @table-header-border-color;
 @detail-table-footer-background-color: @table-footer-background-color;
 @filechooser-background-color: @control-background-color;
 @form-background-color: @background-color;
 @form-menu-popup-main-menubar-background-color: @menubar-background-color;
+@label-color: @palette-gray-9;
 @group-box-title-border-color: @border-color;
+@group-box-title-sub-label-color: @palette-gray-9;
 @header-view-button-tab-active-background-color: @simple-tab-active-background-color;
 @header-view-button-tab-active-color: @simple-tab-active-color;
 @header-view-button-tab-background-color: @navigation-background-color;
@@ -243,7 +247,7 @@
 @link-active-color: @palette-blue-7;
 @link-hover-color: lighten(@link-color, 10%);
 @main-menubar-background-color: @menubar-background-color;
-@menubar-background-color: @palette-gray-1;
+@menubar-background-color: @palette-white;
 @menubar-button-active-background-color: @button-active-background-color;
 @menubar-button-background-color: @button-background-color;
 @menubar-button-border-color: @button-border-color;
@@ -253,7 +257,8 @@
 @menubar-button-disabled-color: @button-disabled-color;
 @menubar-button-font-icon-color: @menubar-button-color;
 @menubar-button-font-icon-disabled-color: @menubar-button-disabled-border-color;
-@menubar-item-color: @text-color;
+@menubar-item-color: @link-color;
+@menu-item-color: @text-color;
 @menu-item-disabled-color: @disabled-color;
 @messagebox-background-color: @popup-background-color;
 @mode-hover-text-color: @hover-color;
@@ -262,8 +267,8 @@
 @mode-alternative-selected-color: @mode-selected-background-color;
 @navigate-up-button-border-color: @menubar-button-border-color;
 @navigate-up-button-color: @menubar-button-color;
-@navigation-background-color: @palette-blue-6;
-@navigation-color: @palette-gray-3;
+@navigation-background-color: @palette-white;
+@navigation-color: @palette-gray-10;
 @notification-ok-background-color: @palette-green-0;
 @notification-ok-border-color: @palette-green-3;
 @notification-info-background-color: @palette-blue-0;
@@ -278,14 +283,14 @@
 @outline-breadcrumb-child-active-background-color: @navigation-background-color;
 @outline-breadcrumb-child-background-color: @outline-group-background-color;
 @outline-breadcrumb-node-active-background-color: lighten(@navigation-background-color, 5%);
-@outline-group-background-color: @palette-blue-5;
-@outline-in-background-selection-background-color: @palette-blue-3;
-@outline-in-background-selection-color: @palette-white;
-@outline-selection-background-color: @background-color;
-@outline-selection-color: @text-color;
+@outline-group-background-color: @palette-blue-0;
+@outline-in-background-selection-background-color: @outline-selection-background-color;
+@outline-in-background-selection-color: @outline-selection-color;
+@outline-selection-background-color: @palette-blue-5;
+@outline-selection-color: @palette-white;
 @outline-scrollbar-thumb-color: @scrollbar-thumb-inverted-color;
 @outline-scrollbar-thumb-hover-color: @scrollbar-thumb-inverted-hover-color;
-@outline-title-border-color: @outline-selection-background-color;
+@outline-title-border-color: transparent;
 @planner-large-scale-item-line-color: fade(@palette-black, 20%);
 @planner-small-scale-item-line-color: fade(@palette-black, 7%);
 @planner-mode-selected-color: @calendar-mode-selected-color;
@@ -344,7 +349,7 @@
 @table-control-resize-border-color: @border-color;
 @table-control-selected-color: @table-control-color;
 @table-control-selected-background-color: @table-control-container-background-color;
-@table-footer-background-color: @panel-background-color;
+@table-footer-background-color: @palette-white;
 @table-header-background-color: @panel-background-color;
 @table-header-border-color: @border-color;
 @table-header-item-state-color: @palette-gray-7;
@@ -373,12 +378,12 @@
 @table-row-checked-selected-background-color: greyscale(@table-row-checked-selected-focus-background-color);
 @table-row-control-color: @tree-node-control-color;
 @tab-area-border-color: @border-color;
-@tab-item-color: @title-color;
-@tab-item-active-color: @active-color;
+@tab-item-color: @text-color;
+@tab-item-active-color: @title-color; // TODO CGU selected
 @tab-item-focus-color: @palette-blue-4;
 @tab-item-hover-color: @hover-color;
 @tab-item-marked-border-color: @palette-gray-6;
-@tab-item-selection-marker-color: @tab-item-active-color;
+@tab-item-selection-marker-color: @active-color;
 @tab-item-selection-marker-focus-color: @tab-item-focus-color;
 @tag-element-background-color: @palette-cyan-2;
 @tag-element-background-color-hover: @palette-cyan-3;
@@ -463,13 +468,16 @@
 @top-label-color: @palette-gray-6-1;
 @tree-node-active-background-color: @item-active-background-color;
 @tree-node-control-color: inherit;
-@view-button-tab-active-background-color: @navigation-background-color;
-@view-button-tab-active-color: @active-inverted-color;
-@view-button-tab-background-color: @panel-background-color;
+@view-button-tab-active-background-color: @active-inverted-background-color;
+@view-button-tab-active-color: @active-inverted-color; // TODO CGU rename active -> selected
+@view-button-tab-background-color: transparent;
+@view-menu-color: @view-button-tab-color;
+@view-menu-background-color: @view-button-tab-background-color;
 @view-button-tab-color: @palette-gray-8;
 @view-menu-popup-background-color: @popup-background-color;
 @simple-tab-active-background-color: @form-background-color;
-@simple-tab-active-color: @active-color;
+@simple-tab-active-color: @title-color; // TODO CGU rename selected
+@simple-tab-selection-marker-color: @active-color;
 @simple-tab-background-color: @panel-background-color;
 @simple-tab-flash-background-color: @palette-gray-5;
 @slider-thumb-color: @palette-gray-4;

@@ -36,7 +36,6 @@ export default class ViewButtonBox extends Widget {
   _render() {
     this.$container = this.$parent.appendDiv('view-button-box');
     this.htmlComp = HtmlComponent.install(this.$container, this.session);
-    this.htmlComp.setLayout(new ViewButtonBoxLayout(this));
 
     this.viewMenuTab.render();
     this._onDesktopOutlineChange();

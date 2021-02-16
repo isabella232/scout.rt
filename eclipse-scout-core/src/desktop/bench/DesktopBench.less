@@ -15,7 +15,7 @@
   left: 0;
   width: 10px;
   height: calc(~'100% - ' @desktop-bench-drop-shadow-top);
-  box-shadow: -10px 0 10px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: -10px 0 10px 0 rgba(0, 0, 0, 0.2);
   clip-path: polygon(0 -100%, 0 200%, -100px 200%, -100px -100%);
 }
 
@@ -66,6 +66,10 @@
     // -> if table is big ie tries to scroll which leads to ugly flickering and moved desktop whenever a large page with table is clicked
     height: 0;
     width: 0;
+  }
+
+  & > .menubar {
+    border-bottom: 0;
   }
 
   & > .table-header {
@@ -120,8 +124,9 @@
     & > .table-row,
     & > .table-aggregate-row {
       /* Desktop table has a 2px border. Top and bottom border are added to the table cell. */
-      border-left-width: 2px;
-      border-right-width: 2px;
+      border-left-width: @detail-table-selection-border-extra-width + 1px;
+      border-right-width: @detail-table-selection-border-extra-width + 1px;
+      border-radius: @detail-table-border-radius;
 
       &.selected {
         background-color: @item-selection-background-color;
@@ -132,19 +137,19 @@
         /* Replace first and last pixel of specified row padding by a transparent border. This border will be */
         /* set to the selection color when the row is selected, thus creating the illusion that the 2px selection */
         /* border is drawn around the cell. See CSS rules below. */
-        padding-top: @detail-table-row-padding-y - 1px;
-        padding-bottom: @detail-table-row-padding-y - 1px;
-        border-top: 1px solid transparent;
-        border-bottom: 1px solid transparent;
+        padding-top: @detail-table-row-padding-y - @detail-table-selection-border-extra-width;
+        padding-bottom: @detail-table-row-padding-y - @detail-table-selection-border-extra-width;
+        border-top: @detail-table-selection-border-extra-width solid transparent;
+        border-bottom: @detail-table-selection-border-extra-width solid transparent;
 
         &.checkable {
-          padding-top: @detail-table-row-padding-y - @checkable-cell-padding-adjustment - 1px;
+          padding-top: @detail-table-row-padding-y - @checkable-cell-padding-adjustment - @detail-table-selection-border-extra-width;
           padding-bottom: 0;
         }
 
         & > .table-row-control {
-          padding-top: @detail-table-row-padding-y - 1px;
-          padding-bottom: @detail-table-row-padding-y - 1px;
+          padding-top: @detail-table-row-padding-y - @detail-table-selection-border-extra-width;
+          padding-bottom: @detail-table-row-padding-y - @detail-table-selection-border-extra-width;
         }
       }
 

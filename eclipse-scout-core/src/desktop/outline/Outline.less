@@ -50,7 +50,7 @@
       }
 
       & > .text {
-        font-size: @font-size-plus;
+        font-size: @outline-font-size;
 
         & > .compact-cell-header > .compact-cell-title > .right {
           color: @outline-compact-cell-content-color;
@@ -113,6 +113,7 @@
   #scout.overflow-ellipsis-nowrap();
   margin: 0 @outline-title-margin-right @outline-title-margin-bottom @outline-title-margin-left;
   border-bottom: 1px solid @outline-title-border-color;
+  font-weight: bold;
   #scout.vertical-align-helper-before();
 
   & > .icon {
@@ -167,7 +168,7 @@
 
 .outline-title-text {
   /* outline title height should be the same as main menubar and desktop header height (if there are no view buttons visible) */
-  padding: 20px 2px 12px @outline-title-text-padding-left;
+  padding: @outline-title-text-padding-top 2px 12px @outline-title-text-padding-left;
   display: inline-block;
   vertical-align: middle;
 }

@@ -14,7 +14,12 @@
   width: @desktop-navigation-width;
   min-width: @desktop-navigation-min-width;
   background-color: @navigation-background-color;
+  border-right: @desktop-navigation-border-width solid @desktop-navigation-border-color;
   color: @navigation-color;
+
+  &.in-background {
+    border-right: 0;
+  }
 
   &.single-view-button {
 

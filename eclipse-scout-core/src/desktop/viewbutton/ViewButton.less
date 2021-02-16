@@ -11,7 +11,9 @@
 .view-tab {
   display: inline-block;
   position: relative;
-  height: @view-button-box-height;
+  height: 100%;
+  border-radius: @view-tab-border-radius;
+  overflow: hidden;
 
   & > .key-box {
     bottom: 4px;
@@ -20,10 +22,9 @@
 
 .view-button-tab {
   white-space: nowrap;
-  border-right: solid 1px @border-color;
   text-align: center;
   #scout.vertical-align-helper-before();
-  min-width: 50px;
+  width: @view-button-tab-width;
   background-color: @view-button-tab-background-color;
   color: @view-button-tab-color;
 

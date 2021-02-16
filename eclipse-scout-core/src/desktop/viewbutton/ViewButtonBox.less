@@ -11,9 +11,10 @@
 .view-button-box {
   display: inline-block;
   vertical-align: top;
-  height: @view-button-box-height;
+  min-height: @view-button-box-height;
   white-space: nowrap;
   #scout.font-text-large();
   overflow: hidden;
   position: relative; /* if covered by glass pane */
+  padding: @view-button-box-padding-top @view-button-box-padding-right @view-button-box-padding-bottom @view-button-box-padding-left;
 }

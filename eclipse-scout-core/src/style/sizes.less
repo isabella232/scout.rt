@@ -28,6 +28,7 @@
 @loading-fade-duration: 250ms;
 @mandatory-indicator-width: 10px;
 @mandatory-indicator-font-size: 15px;
+@field-label-font-size: @font-size-small;
 @field-label-width: 140px;
 @field-status-width: 20px;
 @field-status-margin-left: 10px;
@@ -77,7 +78,7 @@
 /* -------------------------------- */
 /* Component specific sizes         */
 /* -------------------------------- */
-@bench-padding-x: 20px;
+@bench-padding-x: 26px;
 @bench-view-min-height: 50px;
 @bench-view-min-width: 50px;
 @box-margin-y: 15px;
@@ -113,15 +114,20 @@
 @date-picker-day-padding-y: 5px;
 @desktop-bench-drop-shadow-top: 3px;
 @desktop-header-height: 51px;
+@desktop-header-bottom-border-width: 2px;
 @desktop-navigation-breadcrumb-width: 240px;
 @desktop-navigation-min-width: 49px; /* not 50px because last pixel is the border (would not look good)*/
 @desktop-navigation-width: 290px;
+@desktop-navigation-border-width: @desktop-header-bottom-border-width;
 @desktop-notifications-margin-top: 57px;
+@desktop-tool-box-item-font-size: 14px;
+@detail-table-border-radius: 4px;
 @detail-table-data-padding-x: @bench-padding-x - @table-cell-padding-left;
 @detail-table-header-menubar-padding-right: 10px;
 @detail-table-header-padding-x: @bench-padding-x - @table-header-padding-left;
 @detail-table-header-padding-y: @table-header-padding-y + 5;
 @detail-table-row-padding-y: @table-row-padding-y + 5;
+@detail-table-selection-border-extra-width: 0px;
 @dialog-border-top-size: 5px;
 @form-title-margin-top: 10px;
 @group-collapse-icon-margin-top: -1px;
@@ -130,16 +136,17 @@
 @group-box-control-width: 25px;
 @group-box-body-padding-bottom: 16px;
 @group-box-body-padding-top: 14px;
-@group-box-title-border-width: 3px;
+@group-box-title-border-width: 1px;
 @group-box-title-margin-top: 8px;
-@group-box-title-padding-bottom: 12px;
+@group-box-title-padding-bottom: 14px;
 @group-box-title-padding-top: 12px;
-@group-box-title-with-sub-label-padding-bottom: 6px;
+@group-box-title-sub-label-font-size: @font-size-small;
+@group-box-title-with-sub-label-padding-bottom: 11px;
 @header-menu-textandicon-padding-right: 6px;
 @login-box-font-size: 16px;
 @menu-item-height: 39px;
 @menu-item-margin-right-between-buttons: 10px;
-@menu-item-margin-right: 20px;
+@menu-item-margin-right: 27px;
 @menu-item-max-image-icon-height: 18px;
 @menu-item-min-image-icon-width: 18px;
 @menu-item-text-padding-top: 1px;
@@ -154,19 +161,21 @@
 @mode-padding-dense: 3px;
 @outline-breadcrumb-node-padding-x: @outline-title-margin-left + @outline-title-text-padding-left;
 @outline-breadcrumb-node-padding-y: 12px;
+@outline-font-size: @font-size-normal;
 @outline-node-control-size: 20px;
-@outline-node-control-padding-left: 17px;
+@outline-node-control-padding-left: @outline-title-margin-left + @outline-title-text-padding-left;
 @outline-node-control-padding-y: @outline-node-padding-y;
 @outline-node-control-line-height: @tree-node-control-line-height;
 @outline-node-font-icon-line-height: @tree-node-font-icon-line-height;
 @outline-node-padding-left: 37px;
 @outline-node-padding-right: 8px;
 @outline-node-padding-y: 8px;
-@outline-title-margin-bottom: 12px;
-@outline-title-margin-left: 12px;
-@outline-title-margin-right: 12px;
-@outline-title-menubar-top: 13px;
-@outline-title-text-padding-left: 6px;
+@outline-title-margin-bottom: 6px;
+@outline-title-margin-left: 20px;
+@outline-title-margin-right: 20px;
+@outline-title-menubar-top: 18px;
+@outline-title-text-padding-top: 25px;
+@outline-title-text-padding-left: 1px;
 @outline-title-icon-font-size: 20px;
 @outline-title-icon-padding-right: 10px;
 @planner-header-button-height: 30px;
@@ -198,10 +207,11 @@
 @splitter-line-size: 2px;
 @splitter-size: 16px;
 @status-font-icon-size: 16px;
-@tab-area-border-width: 3px;
+@tab-area-border-width: @group-box-title-border-width;
 @tab-item-focus-arrow-width: 15px;
 @tab-item-focus-arrow-padding-top: @tab-item-title-padding-top;
 @tab-item-padding-x: 20px;
+@tab-area-selection-marker-height: 4px;
 @tab-item-title-padding-bottom: @group-box-title-padding-bottom;
 @tab-item-title-padding-top: @group-box-title-padding-top;
 @tab-item-title-margin-top: @group-box-title-margin-top;
@@ -215,7 +225,8 @@
 @table-control-resize-border-width: 3px;
 @table-control-tab-item-title-padding-top: 12px;
 @table-control-tab-item-title-padding-bottom: @table-control-tab-item-title-padding-top;
-@table-footer-height: 52px;
+@table-footer-height: 74px;
+@table-footer-text-filter-height: 40px;
 @table-header-menu-cmd-height: 30px;
 @table-header-menu-cmd-width: 43px;
 @table-header-menu-group-padding-top: 10px;
@@ -236,6 +247,7 @@
 @tag-field-tag-margin-right: @tag-field-tag-margin-y;
 @tile-padding-y: 6px; /* Optimized for a tile height of 30px (logical-grid-height) */
 @tile-padding-x: 8px;
+@title-font-size: @font-size-plus;
 @tile-field-padding: 20px;
 @tile-field-compact-padding-y: 10px;
 @tile-field-compact-padding-x: 15px;
@@ -259,6 +271,14 @@
 @tree-node-padding-right: 6px;
 @tree-node-padding-y: 6px;
 @view-button-box-height: @desktop-header-height - 1px; /* minus the border */
+@view-button-tab-width: 44px;
+@view-menu-tab-margin-right: 11px;
+@view-menu-width: @view-button-tab-width;
+@view-button-box-padding-left: @outline-title-margin-left;
+@view-button-box-padding-right: @outline-title-margin-right;
+@view-button-box-padding-top: 15px;
+@view-button-box-padding-bottom: 12px;
+@view-tab-border-radius: 8px;
 @year-panel-day-height: 24px;
 @year-panel-day-line-height: @year-panel-day-height;
 @wizard-progress-border-width: 1px;

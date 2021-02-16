@@ -636,7 +636,6 @@ export {default as ViewButtonActionKeyStroke} from './desktop/viewbutton/ViewBut
 export {default as ViewButton} from './desktop/viewbutton/ViewButton';
 export {default as ViewButtonAdapter} from './desktop/viewbutton/ViewButtonAdapter';
 export {default as ViewButtonBox} from './desktop/viewbutton/ViewButtonBox';
-export {default as ViewButtonBoxLayout} from './desktop/viewbutton/ViewButtonBoxLayout';
 export {default as ViewMenuOpenKeyStroke} from './desktop/viewbutton/ViewMenuOpenKeyStroke';
 export {default as ViewMenuPopup} from './desktop/viewbutton/ViewMenuPopup';
 export {default as ViewMenuPopupLayout} from './desktop/viewbutton/ViewMenuPopupLayout';

@@ -8,44 +8,42 @@
  * Contributors:
  *     BSI Business Systems Integration AG - initial API and implementation
  */
-.view-tab {
-
-  & > .menu-item {
-    height: @view-button-box-height;
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: solid 1px @border-color;
-
-    & > .icon {
-      top: 0;
-    }
-  }
+.view-menu-tab {
+  margin-right: 12px;
 
   & > .view-button-tab {
     display: inline-block;
-    height: @view-button-box-height;
+    height: 100%;
+    border: 1px solid @border-color;
+    border-top-left-radius: @view-tab-border-radius;
+    border-bottom-left-radius: @view-tab-border-radius;
+
+    &.selected {
+      border-color: transparent;
+    }
   }
 
-  & > .submenu-icon {
-    #scout.submenu-icon();
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    line-height: normal;
-    height: auto;
-
-    /* Make IE trigger the :active state if the text or icon is pressed */
-    pointer-events: none;
+  & > .view-menu {
+    color: @view-menu-color;
   }
 }
 
 .view-menu {
+  height: 100%;
+  width: @view-menu-width;
   padding-left: 10px;
   padding-right: 10px;
-  border-right: solid 1px @border-color;
-  background-color: @view-button-tab-background-color;
-  color: @view-button-tab-color;
+  background-color: @view-menu-background-color;
+  border: 1px solid @border-color;
+  border-left-width: 0;
+  border-top-right-radius: @view-tab-border-radius;
+  border-bottom-right-radius: @view-tab-border-radius;
+  text-align: center;
+
+  & > .icon {
+    top: 0;
+    font-size: 22px;
+  }
 
   &.view-menu-popup-head {
     position: absolute;

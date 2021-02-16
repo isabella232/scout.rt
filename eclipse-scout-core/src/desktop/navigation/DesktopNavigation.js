@@ -70,6 +70,11 @@ export default class DesktopNavigation extends Widget {
     this._renderOutline();
     this._renderHandleVisible();
     this._renderSingleViewButton();
+    this._renderInBackground();
+  }
+
+  _renderInBackground() {
+    this.$container.toggleClass('in-background', this.desktop.inBackground);
   }
 
   _renderViewButtonBox() {
@@ -164,6 +169,9 @@ export default class DesktopNavigation extends Widget {
     if (this.outline) {
       this.outline.sendToBack();
     }
+    if (this.rendered) {
+      this._renderInBackground();
+    }
   }
 
   bringToFront() {
@@ -172,6 +180,9 @@ export default class DesktopNavigation extends Widget {
     }
     if (this.outline) {
       this.outline.bringToFront();
+    }
+    if (this.rendered) {
+      this._renderInBackground();
     }
   }
 

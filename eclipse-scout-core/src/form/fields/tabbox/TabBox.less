@@ -41,7 +41,7 @@
       position: absolute;
       bottom: 0;
       margin-bottom: -@tab-area-border-width;
-      height: @tab-area-border-width;
+      height: @tab-area-selection-marker-height;
       background-color: @tab-item-selection-marker-color;
       transition: left 0.3s, width 0.3s;
     }
@@ -121,7 +121,7 @@
   position: relative;
   display: inline-block;
   vertical-align: bottom;
-  #scout.font-text-normal(@font-weight-bold);
+  font-size: @font-size-plus;
   color: @tab-item-color;
   background-color: transparent;
   padding: 0 @tab-item-padding-x;
@@ -174,12 +174,16 @@
 
     & > .label {
       vertical-align: middle;
+
+      .selected& {
+        font-weight: bold;
+      }
     }
 
     & > .sub-label {
-      padding-top: 3px;
-      font-size: @font-size-extra-small;
-      color: @text-disabled-color;
+      padding-top: 1px;
+      font-size: @group-box-title-sub-label-font-size;
+      color: @group-box-title-sub-label-color;
     }
   }
 

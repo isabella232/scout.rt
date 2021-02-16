@@ -37,13 +37,9 @@
     margin-right: inherit;
   }
 
-  /* a transparent main-menubar with a smaller bottom border */
+  /* a transparent main-menubar */
   .main-menubar-light() {
     #scout.menubar-background-color-inherit();
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: @bench-padding-x;
-    margin-right: @bench-padding-x;
   }
 
   .menubar-focus() {
@@ -120,6 +116,7 @@
     }
 
     & > .menu-item {
+      color: @menubar-item-color;
       display: inline-block;
       padding-top: @menubar-item-padding-y;
       padding-bottom: @menubar-item-padding-y;
@@ -260,6 +257,7 @@
     /* Menu items within a top-level combo-menu should have a focus-border too */
     & > .combo-menu > .menu-item {
       #scout.menubar-focus();
+      color: @menubar-item-color;
     }
   }
 }

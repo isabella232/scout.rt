@@ -54,7 +54,7 @@ export default class ViewMenuTab extends Widget {
   }
 
   _render() {
-    this.$container = this.$parent.appendDiv('view-tab');
+    this.$container = this.$parent.appendDiv('view-tab view-menu-tab');
     this.htmlComp = HtmlComponent.install(this.$container, this.session);
     this.dropdown.render(this.$container);
     this.session.keyStrokeManager.installKeyStrokeContext(this.desktopKeyStrokeContext);
@@ -127,6 +127,7 @@ export default class ViewMenuTab extends Widget {
     if (this.viewTabVisible) {
       if (!this.selectedButton.rendered) {
         this.selectedButton.render(this.$container);
+        this.selectedButton.$container.prependTo(this.$container);
         this.invalidateLayoutTree();
       }
     } else {

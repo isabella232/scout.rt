@@ -24,9 +24,9 @@
     content: '';
     background-color: @desktop-header-border-color;
     width: 100%;
-    height: 1px;
+    height: @desktop-header-bottom-border-width;
     position: absolute;
-    top: calc(~'100% - 1px');
+    top: calc(~'100% - ' @desktop-header-bottom-border-width);
     left: 0;
   }
 
@@ -64,8 +64,8 @@
   & > .view-button-tab,
   & > .view-tab > .view-button-tab,
   & > .view-tab > .view-menu {
-    /* 1px smaller than the header because of the bottom border (see .selected rule for .simple-tab) */
-    height: calc(~'100% - 1px');
+    /* slightly smaller than the header because of the bottom border (see .selected rule for .simple-tab) */
+    height: calc(~'100% - ' + @desktop-header-bottom-border-width);
     vertical-align: top;
     background-color: @header-view-button-tab-background-color;
     color: @header-view-button-tab-color;
