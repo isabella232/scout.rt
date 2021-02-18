@@ -523,8 +523,9 @@ export default class Desktop extends Widget {
   }
 
   _renderInBackground() {
+    this.$container.toggleClass('in-background', this.inBackground);
     if (this.bench) {
-      this.bench.$container.toggleClass('drop-shadow', this.inBackground);// TODO CGU rename to in-background and render in desktopbench itself same as with desktop navigation
+      this.bench.$container.toggleClass('drop-shadow', this.inBackground);
     }
   }
 

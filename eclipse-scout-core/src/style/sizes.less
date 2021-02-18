@@ -113,6 +113,7 @@
 @date-picker-day-padding-x: 5px;
 @date-picker-day-padding-y: 5px;
 @desktop-bench-drop-shadow-top: 3px;
+@desktop-bench-border-top-left-radius: 0px;
 @desktop-header-height: 51px;
 @desktop-header-bottom-border-width: 2px;
 @desktop-navigation-breadcrumb-width: 240px;
@@ -120,6 +121,8 @@
 @desktop-navigation-width: 290px;
 @desktop-navigation-border-width: @desktop-header-bottom-border-width;
 @desktop-notifications-margin-top: 57px;
+@desktop-tab-width: 200px;
+@desktop-tab-small-width: 130px;
 @desktop-tool-box-item-font-size: 14px;
 @detail-table-border-radius: 4px;
 @detail-table-data-padding-x: @bench-padding-x - @table-cell-padding-left;
@@ -270,7 +273,7 @@
 @tree-node-padding-left: 28px;
 @tree-node-padding-right: 6px;
 @tree-node-padding-y: 6px;
-@view-button-box-height: @desktop-header-height - 1px; /* minus the border */
+@view-button-box-height: @desktop-header-height - @desktop-header-bottom-border-width;
 @view-button-tab-width: 44px;
 @view-menu-tab-margin-right: 11px;
 @view-menu-width: @view-button-tab-width;

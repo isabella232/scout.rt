@@ -8,18 +8,22 @@
  * Contributors:
  *     BSI Business Systems Integration AG - initial API and implementation
  */
-.desktop-tab-background(@background-color-param) {
-  background: linear-gradient(to bottom, @simple-tab-selection-marker-color 0, @simple-tab-selection-marker-color 4px, @background-color-param 4px, @background-color-param);
-}
-
 .desktop-tab.simple-tab {
-  width: 220px;
+  width: @desktop-tab-width;
   padding: 16px 10px 0 20px;
   border-right-width: @desktop-header-bottom-border-width;
-  height: calc(100% - @desktop-header-bottom-border-width);
+  margin-top: @view-button-box-padding-top;
+  border-top-left-radius: @view-tab-border-radius;
+  border-top-right-radius: @view-tab-border-radius;
+  background-color: transparent;
+  color: @desktop-tab-color;
+
+  &::before {
+    border-top-left-radius: @view-tab-border-radius;
+  }
 
   &.small {
-    width: 130px;
+    width: @desktop-tab-small-width;
   }
 
   & > .title {
@@ -28,37 +32,43 @@
   }
 
   & > .sub-title {
+    color: @desktop-tab-sub-title-color;
     font-size: @font-size-small;
     padding-top: 4px;
-  }
-
-  &.selected:not(.animate-modality-highlight) {
-    /* A dedicated div or before element can not be used because it does not take the full width when zoomed. */
-    /* Border can not be used as well because it does not look good on the top right corner. */
-    /* Gradient looks perfect even when zoomed. */
-    .desktop-tab-background(@simple-tab-active-background-color);
   }
 
   &.animate-modality-highlight {
     #scout.animation-flash-gray(flash-gray-desktop-tab);
   }
+
+  &:hover {
+    background-color: @desktop-tab-hover-background-color;
+  }
+
+  &.selected {
+    background-color: @simple-tab-active-background-color;
+
+    & > .sub-title {
+      color: @desktop-tab-sub-title-active-color;
+    }
+  }
 }
 
 .keyframes-flash-gray-desktop-tab() {
   0% {
-    .desktop-tab-background(@simple-tab-background-color);
+    background-color: @simple-tab-background-color;
   }
   25% {
-    .desktop-tab-background(@simple-tab-flash-background-color);
+    background-color: @simple-tab-flash-background-color;
   }
   50% {
-    .desktop-tab-background(@simple-tab-background-color);
+    background-color: @simple-tab-background-color;
   }
   75% {
-    .desktop-tab-background(@simple-tab-flash-background-color);
+    background-color: @simple-tab-flash-background-color;
   }
   100% {
-    .desktop-tab-background(@simple-tab-background-color);
+    background-color: @simple-tab-background-color;
   }
 }
 

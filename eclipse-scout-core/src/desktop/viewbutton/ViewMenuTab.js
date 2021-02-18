@@ -71,6 +71,7 @@ export default class ViewMenuTab extends Widget {
   _renderProperties() {
     super._renderProperties();
     this._updateSelectedButton();
+    this._renderSelected();
   }
 
   setViewButtons(viewButtons) {
@@ -145,6 +146,10 @@ export default class ViewMenuTab extends Widget {
     }
   }
 
+  setSelected(selected) {
+    this.setProperty('selected', selected);
+  }
+
   _renderSelected() {
     this.$container.select(this.selected);
   }
@@ -190,10 +195,6 @@ export default class ViewMenuTab extends Widget {
     if (this.popup) {
       this.popup.close();
     }
-  }
-
-  setSelected(selected) {
-    this.setProperty('selected', selected);
   }
 
   sendToBack() {

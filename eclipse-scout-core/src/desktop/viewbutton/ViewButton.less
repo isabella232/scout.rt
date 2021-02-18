@@ -9,9 +9,7 @@
  *     BSI Business Systems Integration AG - initial API and implementation
  */
 .view-tab {
-  display: inline-block;
   position: relative;
-  height: 100%;
   border-radius: @view-tab-border-radius;
   overflow: hidden;
 
@@ -21,15 +19,17 @@
 }
 
 .view-button-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
-  text-align: center;
-  #scout.vertical-align-helper-before();
   width: @view-button-tab-width;
   background-color: @view-button-tab-background-color;
   color: @view-button-tab-color;
 
   &:hover {
     cursor: pointer;
+    background-color: @view-button-tab-hover-background-color;
 
     &:not(.selected) > .font-icon {
       color: @hover-color;

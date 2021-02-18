@@ -8,6 +8,13 @@
  * Contributors:
  *     BSI Business Systems Integration AG - initial API and implementation
  */
+
+#scout {
+  .desktop-navigation-background-color-transition {
+    transition: background-color 0.2s ease;
+  }
+}
+
 .desktop-navigation {
   position: absolute;
   height: 100%;
@@ -19,6 +26,13 @@
 
   &.in-background {
     border-right: 0;
+    background-color: @desktop-navigation-in-background-background-color;
+    #scout.desktop-navigation-background-color-transition();
+
+    & > .view-button-box > .view-tab.selected {
+      background-color: @desktop-navigation-in-background-background-color;
+      #scout.desktop-navigation-background-color-transition();
+    }
   }
 
   &.single-view-button {

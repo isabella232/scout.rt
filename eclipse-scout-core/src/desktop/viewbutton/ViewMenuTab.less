@@ -9,11 +9,14 @@
  *     BSI Business Systems Integration AG - initial API and implementation
  */
 .view-menu-tab {
+  display: flex;
   margin-right: 12px;
+  color: @view-menu-tab-color;
 
   & > .view-button-tab {
-    display: inline-block;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid @border-color;
     border-top-left-radius: @view-tab-border-radius;
     border-bottom-left-radius: @view-tab-border-radius;
@@ -24,12 +27,18 @@
   }
 
   & > .view-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: @view-menu-color;
+  }
+
+  &.selected {
+    color: @view-menu-tab-selected-color;
   }
 }
 
 .view-menu {
-  height: 100%;
   width: @view-menu-width;
   padding-left: 10px;
   padding-right: 10px;

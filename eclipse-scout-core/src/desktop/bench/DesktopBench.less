@@ -15,8 +15,8 @@
   left: 0;
   width: 10px;
   height: calc(~'100% - ' @desktop-bench-drop-shadow-top);
-  box-shadow: -10px 0 10px 0 rgba(0, 0, 0, 0.2);
-  clip-path: polygon(0 -100%, 0 200%, -100px 200%, -100px -100%);
+  box-shadow: -8px 0 10px 0 rgba(0, 0, 0, 0.1);
+  clip-path: polygon(-100% 0, 200% 0, 200% 200%, -100% 200%);
 }
 
 .desktop-bench {
@@ -24,11 +24,12 @@
   top: 0;
   background-color: @background-color;
 
-  /* jquery sets overflow to hidden while animating which makes bench-drop-shadow invisible -> prevent it */
-  overflow: visible !important; /* NOSONAR */
-
-  &.drop-shadow::before {
+  &.drop-shadow {
     .desktop-bench-drop-shadow();
+    .desktop:not(.first-tab-selected) > & {
+      border-top-left-radius: @desktop-bench-border-top-left-radius;
+      overflow: hidden;
+    }
   }
 
   &.animate-remove {

@@ -20,6 +20,7 @@ export default class DesktopTab extends SimpleTab {
     super._render();
     this.$container.addClass('desktop-tab');
     this.$container.on('contextmenu', this._onContextMenu.bind(this));
+    this.$container.prependDiv('left-side');
   }
 
   _onContextMenu(event) {

@@ -12,11 +12,9 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  /* 1px smaller than the header because of the bottom border (see .selected rule below) */
-  height: calc(~'100% - 1px');
   padding: 5px;
   background-color: @simple-tab-background-color;
-  color: @text-color;
+  color: @simple-tab-color;
   border-right: 1px solid @border-color;
 
   &:not(.no-hover) {
@@ -24,7 +22,8 @@
   }
 
   &:not(.no-hover):hover > .title {
-    color: @hover-color;
+    // TDOO CGU cleanup all hover stuff once it is clear. Only support one hover style (e.g. background).
+    // color: @hover-color;
   }
 
   &.small {
@@ -43,8 +42,6 @@
   &.selected {
     cursor: default;
     background-color: @simple-tab-active-background-color;
-    /* full size of header to draw over the border-bottom */
-    height: 100%;
 
     & > .title {
       color: @simple-tab-active-color;
@@ -62,6 +59,7 @@
 
   & > .sub-title {
     padding-top: 2px;
+    color: @simple-tab-sub-title-color;
   }
 
   & > .icon {
