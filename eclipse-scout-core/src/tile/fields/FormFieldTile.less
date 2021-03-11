@@ -10,10 +10,11 @@
  */
 .tile.dashboard {
   border: 1px solid @tile-default-border-color;
-  border-radius: @border-radius;
+  border-radius:  @tile-default-border-radius;
   background-color: @tile-default-background-color;
   color: @tile-default-color;
   overflow: hidden;
+  box-shadow: 0 6px 13px rgba(0, 0, 0, 0.05);
 
   & > .form-field {
     padding: 12px @tile-field-padding @tile-field-padding;
@@ -46,14 +47,11 @@
     & > label {
       color: @tile-default-label-color;
       margin: 0;
-      font-size: 18px;
+      font-size: @font-size-small;
+      font-weight: bold;
       padding-top: 0;
       padding-bottom: @dashboard-tile-label-padding-bottom;
       padding-right: 0;
-
-      .compact& {
-        font-size: @font-size-large;
-      }
     }
 
     & > .field {
@@ -161,7 +159,6 @@
 
   &.inverted {
     border-color: transparent;
-    border-radius: @border-radius;
     background-color: @tile-default-inverted-background-color;
     color: @tile-default-inverted-color;
 
@@ -178,8 +175,7 @@
 
       & .app-link,
       & a {
-        color: @tile-default-inverted-color;
-        text-decoration: underline;
+        color: @tile-default-inverted-link-color;
 
         &:hover {
           color: @tile-default-inverted-link-hover-color;
@@ -261,7 +257,7 @@
 
       & .app-link,
       & a {
-        color: @tile-alternative-inverted-color;
+        color: @tile-alternative-inverted-link-color;
 
         &:hover {
           color: @tile-alternative-inverted-link-hover-color;

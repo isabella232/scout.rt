@@ -18,6 +18,11 @@ import $ from 'jquery';
 const TABLE_SORT_ASC = 'font:\u2191';
 const TABLE_SORT_DESC = 'font:\u2193';
 
+const ARROW_DOWN_1 = 'font:bsiIconsNew \uE921';
+const ARROW_UP_1 = 'font:bsiIconsNew \uE922';
+const ARROW_DOWN_1_BOLD = 'font:bsiIconsNew \uE925';
+const ARROW_UP_1_BOLD = 'font:bsiIconsNew \uE926';
+
 /* scoutIcons: custom icons */
 const EXCLAMATION_MARK = 'font:\uE060';
 const EXCLAMATION_MARK_CIRCLE = 'font:\uE001';

@@ -20,6 +20,13 @@
     border: 1px solid @border-color;
     border-top-left-radius: @view-tab-border-radius;
     border-bottom-left-radius: @view-tab-border-radius;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    & > .icon {
+      font-size: 26px;
+    }
 
     &.selected {
       border-color: transparent;
@@ -31,6 +38,10 @@
     align-items: center;
     justify-content: center;
     color: @view-menu-color;
+
+    & > .icon.font-icon {
+      font-size: 24px;
+    }
   }
 
   &.selected {
@@ -39,20 +50,14 @@
 }
 
 .view-menu {
-  width: @view-menu-width;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
   background-color: @view-menu-background-color;
   border: 1px solid @border-color;
   border-left-width: 0;
   border-top-right-radius: @view-tab-border-radius;
   border-bottom-right-radius: @view-tab-border-radius;
   text-align: center;
-
-  & > .icon {
-    top: 0;
-    font-size: 22px;
-  }
 
   &.view-menu-popup-head {
     position: absolute;

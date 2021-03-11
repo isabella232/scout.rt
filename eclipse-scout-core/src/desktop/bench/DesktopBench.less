@@ -22,7 +22,7 @@
 .desktop-bench {
   position: absolute;
   top: 0;
-  background-color: @background-color;
+  background-color: @desktop-bench-background-color;
 
   &.drop-shadow {
     .desktop-bench-drop-shadow();
@@ -54,7 +54,20 @@
   }
 }
 
+.desktop-bench:not(.drop-shadow) > .bench-column > .view-tab-box > .tab-content > .form { // TODO CGU brushup make it simpler
+  background-color: @detail-form-background-color;
+}
+
 .detail-table.table {
+  background-color: @detail-table-background-color;
+
+  & > .group-box,
+  & > .accordion {
+    background-color: @desktop-bench-background-color;
+  }
+
+  // TODO CGU brushup background-color necessary because of -1px margin, aggregate rows draw over header
+  // maybe remove top margin/padding 1px and selected row margin 1px
 
   &.loading {
     & > .loading-indicator {
@@ -69,22 +82,17 @@
     width: 0;
   }
 
-  & > .menubar {
-    border-bottom: 0;
-  }
-
   & > .table-header {
     padding-left: @detail-table-header-padding-x;
     padding-right: @detail-table-header-padding-x;
     background-color: @detail-table-header-background-color;
-    border-bottom-color: @detail-table-header-border-color;
 
     & > .table-header-item {
       padding-top: @detail-table-header-padding-y;
       padding-bottom: @detail-table-header-padding-y;
 
       & > .table-header-item-state {
-        top: 9px;
+        top: 11px; // TODO CGU use flex?
       }
     }
 

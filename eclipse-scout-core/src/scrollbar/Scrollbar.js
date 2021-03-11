@@ -76,6 +76,9 @@ export default class Scrollbar extends Widget {
     this._dirReverse = this.axis === 'x' ? 'right' : 'bottom';
     this._scrollDir = this.axis === 'x' ? 'scrollLeft' : 'scrollTop';
 
+    this.$parent.appendDiv('hidden scroll-shadow ' + this._dir);
+    this.$parent.appendDiv('hidden scroll-shadow ' + this._dirReverse);
+
     // Install listeners
     let scrollbars = this.$parent.data('scrollbars');
     if (!scrollbars) {
@@ -95,6 +98,7 @@ export default class Scrollbar extends Widget {
     // an update whenever a parent div is scrolled ore resized.
     this._$ancestors = this.$container.parents('div')
       .on('scroll resize', this._onAncestorScrollOrResizeHandler);
+
   }
 
   _remove() {
@@ -112,6 +116,7 @@ export default class Scrollbar extends Widget {
     this._$thumb.off('mousedown', '', this._onThumbMouseDownHandler);
     this._$ancestors.off('scroll resize', this._onAncestorScrollOrResizeHandler);
     this._$ancestors = null;
+    this.$parent.children('.scroll-shadow' + this.axis).remove();
 
     super._remove();
   }
@@ -187,8 +192,14 @@ export default class Scrollbar extends Widget {
     // show scrollbar
     if (this._offsetSize + offsetFix >= this._scrollSize) {
       this.$container.css('display', 'none');
+      this.$parent.children('.scroll-shadow.' + this._dir).setVisible(false);
+      this.$parent.children('.scroll-shadow.' + this._dirReverse).setVisible(false);
     } else {
       this.$container.css('display', '');
+      let atStart = scrollPos === 0;
+      let atEnd = scrollPos >= this._scrollSize - this._offsetSize;
+      this.$parent.children('.scroll-shadow.' + this._dir).setVisible(!atStart);// TODO CGU brushup cleanup, how to make it work for native scrolling?
+      this.$parent.children('.scroll-shadow.' + this._dirReverse).setVisible(!atEnd);
 
       // indicate that thumb movement is not possible
       if (this._isContainerTooSmallForThumb()) {
@@ -204,6 +215,10 @@ export default class Scrollbar extends Widget {
     // Always update both to make sure every scrollbar (x and y) is positioned correctly
     this.$container.cssRight(-1 * scrollLeft);
     this.$container.cssBottom(-1 * scrollTop);
+    this.$parent.children('.scroll-shadow.' + this._dirReverse).cssRight(-1 * scrollLeft); // TODO CGU brushup how does it look if not updated immediately?
+    this.$parent.children('.scroll-shadow.' + this._dirReverse).cssBottom(-1 * scrollTop);
+    this.$parent.children('.scroll-shadow.' + this._dir).cssLeft( scrollLeft);
+    this.$parent.children('.scroll-shadow.' + this._dir).cssTop(scrollTop);
   }
 
   _resetClipping() {

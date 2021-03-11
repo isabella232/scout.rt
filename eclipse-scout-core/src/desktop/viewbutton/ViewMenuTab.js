@@ -32,7 +32,7 @@ export default class ViewMenuTab extends Widget {
     super._init(model);
     this.dropdown = scout.create('Menu', {
       parent: this,
-      iconId: icons.ANGLE_DOWN,
+      iconId: icons.ANGLE_DOWN_BOLD,
       tabbable: false,
       cssClass: 'view-menu'
     });
@@ -58,6 +58,7 @@ export default class ViewMenuTab extends Widget {
     this.htmlComp = HtmlComponent.install(this.$container, this.session);
     this.dropdown.render(this.$container);
     this.session.keyStrokeManager.installKeyStrokeContext(this.desktopKeyStrokeContext);
+    this.$container.appendDiv('right-side');
   }
 
   _remove() {
@@ -199,10 +200,14 @@ export default class ViewMenuTab extends Widget {
 
   sendToBack() {
     this._closePopup();
+    // TODO CGU brushup Use Listener instead as in ViewButton
   }
 
   bringToFront() {
-    // NOP
+    if (this.selected) {
+      this.$container.children('.left-side').addClassForAnimation('animate-bring-to-front');
+      this.$container.children('.right-side').addClassForAnimation('animate-bring-to-front');
+    }
   }
 
   onViewButtonSelected() {

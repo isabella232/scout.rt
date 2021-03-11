@@ -466,13 +466,11 @@ export default class Table extends Widget {
     if (this.uiCssClass) {
       this.$container.addClass(this.uiCssClass);
     }
-
     if (this.tileMode) {
       this._renderTileMode();
     } else {
       this._renderData();
     }
-
     this.session.desktop.on('popupOpen', this._popupOpenHandler);
     this.session.desktop.on('propertyChange', this._desktopPropertyChangeHandler);
   }

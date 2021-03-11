@@ -43,13 +43,14 @@
 @palette-blue-7: #2F3C45;
 
 @palette-gray-0: #FEFEFE;
-@palette-gray-1: #FAFAFA;
+@palette-gray-1: #F5F5F5;
 @palette-gray-2: #F7F7F7;
 @palette-gray-3: #F1F1F1;
 @palette-gray-4: #DDDDDD;
 @palette-gray-5: #E3E3E3;;
 @palette-gray-6: #999999;
 @palette-gray-6-1: #888888;
+@palette-gray-6-2: #757575;
 @palette-gray-7: #666666;
 @palette-gray-8: #5C5C5C;
 @palette-gray-9: #4A4A4A;
@@ -212,6 +213,7 @@
 @default-button-background-color: @palette-blue-4;
 @default-button-color: @palette-white;
 @default-button-hover-background-color: @default-button-background-color;
+@desktop-bench-background-color: @palette-gray-1;
 @desktop-navigation-border-color: @border-color; // TODO CGU desktop-navigation vs. @navigation
 @desktop-navigation-handle-active-background-color: @outline-group-background-color;
 @desktop-navigation-handle-background-color: @navigation-background-color;
@@ -235,9 +237,11 @@
 // TODO CGU create hover-inverted-background-color etc. for header elements, maybe remove all the variables and use this generic names for all header elements
 //  -> or maybe define color in header and always use inherit. can we easily allow for two styles (navigation colored, header colored)?
 @desktop-toolbox-in-navigation-background-color: @palette-white; // TODO CGU rename toolbox -> tool-box
+@detail-form-background-color: transparent;
 @detail-table-header-background-color: @table-header-background-color;
 @detail-table-header-border-color: @table-header-border-color;
 @detail-table-footer-background-color: @table-footer-background-color;
+@detail-table-background-color: @background-color;
 @filechooser-background-color: @control-background-color;
 @form-background-color: @background-color;
 @form-menu-popup-main-menubar-background-color: @menubar-background-color;
@@ -405,20 +409,21 @@
 @tile-active-background-color: @palette-gray-3;
 @tile-selection-background-color: @item-selection-background-color;
 @tile-selection-border-color: @item-selection-border-color;
-@tile-alternative-background-color: @tile-default-background-color;
+@tile-alternative-background-color: @tile-default-background-color; // TODO CGU brushup remove?
 @tile-alternative-border-color: @tile-default-border-color;
 @tile-alternative-color: @tile-default-color;
 @tile-alternative-label-color: @tile-default-label-color;
 @tile-alternative-link-color: @tile-default-link-color;
 @tile-alternative-link-active-color: @tile-default-link-active-color;
 @tile-alternative-link-hover-color: @tile-default-link-hover-color;
-@tile-alternative-inverted-background-color: @palette-cyan-4;
-@tile-alternative-inverted-selection-background-color: @palette-cyan-2;
-@tile-alternative-inverted-border-color: @tile-default-inverted-border-color;
-@tile-alternative-inverted-color: @tile-default-inverted-color;
-@tile-alternative-inverted-label-color: @tile-alternative-inverted-color;
-@tile-alternative-inverted-link-hover-color: @tile-alternative-inverted-color;
-@tile-alternative-inverted-link-active-color: @tile-alternative-inverted-color;
+@tile-alternative-inverted-background-color: @tile-default-background-color;
+@tile-alternative-inverted-selection-background-color: @tile-default-inverted-selection-background-color;
+@tile-alternative-inverted-border-color: @tile-default-border-color;
+@tile-alternative-inverted-color: @tile-default-color;
+@tile-alternative-inverted-label-color: @tile-default-label-color;
+@tile-alternative-inverted-link-color: @tile-default-link-color;
+@tile-alternative-inverted-link-hover-color: @tile-default-link-hover-color;
+@tile-alternative-inverted-link-active-color: @tile-default-link-active-color;
 @tile-button-alternative-active-background-color: @tile-button-default-active-background-color;
 @tile-button-alternative-hover-color: @tile-button-default-hover-color;
 @tile-button-alternative-icon-color: @tile-button-default-icon-color;
@@ -428,22 +433,23 @@
 @tile-button-default-hover-color: @hover-color;
 @tile-button-default-icon-color: @tile-default-label-color;
 @tile-button-default-inverted-active-background-color: @palette-blue-3;
-@tile-button-default-inverted-color: @palette-white;
-@tile-default-background-color: @palette-gray-1;
-@tile-default-border-color: @palette-gray-4;
+@tile-button-default-inverted-color: @link-color;
+@tile-default-background-color: @palette-white;
+@tile-default-border-color: transparent; // TODO CGU brushup remove?
 @tile-default-color: @palette-gray-10;
 @tile-default-link-color: @palette-blue-5;
 @tile-default-link-active-color: @tile-default-link-hover-color;
 @tile-default-link-hover-color: @link-hover-color;
-@tile-default-label-color: @palette-blue-5;
+@tile-default-label-color: @palette-gray-6-2;
 @tile-default-inner-border-color: @palette-gray-2;
-@tile-default-inverted-background-color: @palette-blue-6;
+@tile-default-inverted-background-color: @palette-white; // TODO CGU brushup remove , no inverted anymore for no tiles? only white? remove all inverted an alternative styles?
 @tile-default-inverted-selection-background-color: @palette-blue-4;
 @tile-default-inverted-border-color: @palette-white;
-@tile-default-inverted-color: @palette-white;
-@tile-default-inverted-label-color: @tile-default-inverted-color;
-@tile-default-inverted-link-hover-color: @tile-default-inverted-color;
-@tile-default-inverted-link-active-color: @tile-default-inverted-color;
+@tile-default-inverted-color: @tile-default-color;
+@tile-default-inverted-label-color: @tile-default-label-color;
+@tile-default-inverted-link-color: @tile-default-link-color;
+@tile-default-inverted-link-hover-color: @tile-default-link-color;
+@tile-default-inverted-link-active-color: @tile-default-link-active-color;
 @tile-overview-color: @tile-default-inverted-background-color;
 @tile-placeholder-background-color: @palette-gray-3;
 @tile-table-default-inverted-selection-background-color: @palette-blue-5;

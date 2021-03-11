@@ -20,8 +20,8 @@ public class TileGridLayoutConfig extends LogicalGridLayoutConfig {
     // defaults in the java-script: 'tile-grid-layout-config' in TileGrid.less
     setColumnWidth(200);
     setRowHeight(150);
-    setHGap(30);
-    setVGap(30);
+    setHGap(22);
+    setVGap(22);
   }
 
   public TileGridLayoutConfig(TileGridLayoutConfig config) {

@@ -26,8 +26,20 @@
     box-shadow: inset 0 0 @radius @color;
   }
 
+  .inset-shadow-top(@y: 10px, @blur: 14px, @alpha: @drop-shadow-alpha) {
+    box-shadow: inset 0 @y @blur -@blur rgba(0, 0, 0, @alpha);
+  }
+
   .inset-shadow-bottom(@y: -10px, @blur: 14px, @alpha: @drop-shadow-alpha) {
     box-shadow: inset 0 @y @blur -@blur rgba(0, 0, 0, @alpha);
+  }
+
+  .inset-shadow-left(@x: 10px, @blur: 14px, @alpha: @drop-shadow-alpha) {
+    box-shadow: inset @x 0 @blur -@blur rgba(0, 0, 0, @alpha);
+  }
+
+  .inset-shadow-right(@x: -10px, @blur: 14px, @alpha: @drop-shadow-alpha) {
+    box-shadow: inset @x 0 @blur -@blur rgba(0, 0, 0, @alpha);
   }
 
   .drop-shadow(@x: 2px, @y: 6px, @blur: 14px, @spread: -6px, @alpha: @drop-shadow-alpha) {

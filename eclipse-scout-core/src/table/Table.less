@@ -131,7 +131,6 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  #scout.inset-shadow-bottom;
 
   /* Draw the .table-data DIV one pixel higher, over the header (for selection border). */
   /* - To make height calculation correct, this margin has to be subtracted again */
@@ -172,6 +171,23 @@
 
 .table-data-fill {
   background-color: @border-color; /* actual style is set by JS, this is used for the line color (see _applyFillerStyle) */
+}
+
+.table-data > .scroll-shadow.bottom {
+  #scout.inset-shadow-bottom;
+  position: absolute;
+  height: 20px;
+  margin-top: -20px;
+  width: 100%;
+  z-index: 1;
+}
+
+.table-data > .scroll-shadow.top {
+  #scout.inset-shadow-top;
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  z-index: 1;
 }
 
 .table-row,

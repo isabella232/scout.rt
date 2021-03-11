@@ -24,7 +24,6 @@ export default class PageTileGrid extends TileGrid {
     this.outline = null;
     this.page = null;
     this.nodes = null;
-    this.withPlaceholders = true;
     this.scrollable = false;
     this.renderAnimationEnabled = true;
     this.startupAnimationEnabled = true;

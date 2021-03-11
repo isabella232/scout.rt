@@ -29,9 +29,11 @@
     background-color: @desktop-navigation-in-background-background-color;
     #scout.desktop-navigation-background-color-transition();
 
-    & > .view-button-box > .view-tab.selected {
-      background-color: @desktop-navigation-in-background-background-color;
-      #scout.desktop-navigation-background-color-transition();
+    & > .view-button-box {
+      & > .view-tab.selected {
+        background-color: @desktop-navigation-in-background-background-color;
+        //#scout.desktop-navigation-background-color-transition(); // TODO CGU brushup conflicts with view tab transformation transition
+      }
     }
   }
 

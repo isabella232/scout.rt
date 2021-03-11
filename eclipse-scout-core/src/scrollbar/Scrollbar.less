@@ -128,3 +128,46 @@
 .hybrid-scrollable {
   #scout.hide-scrollbars();
 }
+
+
+@scroll-shadow-size: 10px;
+
+.scroll-shadow {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+
+  &.left {
+    #scout.inset-shadow-left;
+    height: 100%;
+    width: @scroll-shadow-size;
+  }
+
+  &.right {
+    #scout.inset-shadow-right;
+    height: 100%;
+    width: @scroll-shadow-size;
+    margin-left: -@scroll-shadow-size;
+  }
+
+  &.top {
+    #scout.inset-shadow-top;
+    height: @scroll-shadow-size;
+    width: 100%;
+  }
+
+  &.bottom {
+    #scout.inset-shadow-bottom;
+    height: @scroll-shadow-size;
+    width: 100%;
+    margin-top: -@scroll-shadow-size;
+  }
+}
+
+.table-data > .scroll-shadow.top {
+  #scout.inset-shadow-top;
+  position: absolute;
+  height: @scroll-shadow-size;
+  width: 100%;
+  z-index: 1;
+}

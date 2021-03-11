@@ -13,7 +13,7 @@
 /* -------------------------------- */
 @application-loading01-size: 80px;
 @application-loading02-size: 120px;
-@border-radius: 3px;
+@border-radius: 4px;
 @borderless-field-padding-y: @text-field-padding-y + 1px;
 @control-border-radius: @border-radius;
 @control-alternative-border-radius: 0;
@@ -228,7 +228,7 @@
 @table-control-resize-border-width: 3px;
 @table-control-tab-item-title-padding-top: 12px;
 @table-control-tab-item-title-padding-bottom: @table-control-tab-item-title-padding-top;
-@table-footer-height: 74px;
+@table-footer-height: 64px;
 @table-footer-text-filter-height: 40px;
 @table-header-menu-cmd-height: 30px;
 @table-header-menu-cmd-width: 43px;
@@ -255,6 +255,7 @@
 @tile-field-compact-padding-y: 10px;
 @tile-field-compact-padding-x: 15px;
 @tile-field-small-compact-padding-x: @tile-field-compact-padding-y;
+@tile-default-border-radius: 8px;
 @tooltip-arrow-size: 14px;
 @tooltip-border-size: 1px;
 @tooltip-border: @tooltip-border-size solid @tooltip-border-color;
@@ -274,9 +275,9 @@
 @tree-node-padding-right: 6px;
 @tree-node-padding-y: 6px;
 @view-button-box-height: @desktop-header-height - @desktop-header-bottom-border-width;
-@view-button-tab-width: 44px;
+@view-button-tab-width: 50px; // TODO CGU brushup navigation cannot get smaller because tabs look strange when small
 @view-menu-tab-margin-right: 11px;
-@view-menu-width: @view-button-tab-width;
+//@view-menu-width: @view-button-tab-width; // TODO CGU brushup remove
 @view-button-box-padding-left: @outline-title-margin-left;
 @view-button-box-padding-right: @outline-title-margin-right;
 @view-button-box-padding-top: 15px;

@@ -29,6 +29,15 @@ export default class ViewButton extends Action {
     this._renderedAsMenu = false;
   }
 
+  _init(model) {
+    super._init(model);
+    this.session.desktop.on('propertyChange:inBackground', () => {
+      if (this.rendered) {
+        this._renderInBackground();
+      }
+    });
+  }
+
   renderAsMenuItem($parent) {
     this._renderedAsMenu = true;
     super.render($parent);
@@ -55,6 +64,15 @@ export default class ViewButton extends Action {
   _renderAsTab() {
     this.$container = this.$parent.appendDiv('view-button-tab')
       .on('mousedown', this._onMouseEvent.bind(this));
+    this.$container.prependDiv('left-side');
+    this.$container.appendDiv('right-side');
+  }
+
+  _renderInBackground() {
+    if (!this.session.desktop.inBackground && this.selected) {
+      this.$container.children('.left-side').addClassForAnimation('animate-bring-to-front');
+      this.$container.children('.right-side').addClassForAnimation('animate-bring-to-front');
+    }
   }
 
   /**
